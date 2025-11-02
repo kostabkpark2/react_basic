@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <h1>react 로 동작하는 웹 페이지</h1>
+    <hr>
+    <div id="root"></div>
+    <script> 
+    // react.js
+        let counter = 0;
+        const root = document.getElementById("root");
+        const p = React.createElement("p", {id:"count", style: {color:"blue"}}, "This is a p tag");
+        const button = React.createElement("button", {onClick: () => { 
+                counter +=1; 
+                console.log("button clicked!", counter)
+            }
+        }, "Click");
+        const app = React.createElement("div", null, [p, button]);
+        ReactDOM.render(app, root);
+    </script>
+</body>
+</html>

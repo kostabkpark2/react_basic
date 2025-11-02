@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+        const App = () => {
+            const [numbers, setNumbers] = React.useState(0);
+            const [status, setStatus] = React.useState(false);
+            function onChange(e) {
+                setNumbers(e.target.value);
+            }
+            function onClick() {
+                setNumbers(0);
+                setStatus(status => !status);
+            }
+            return (
+                <div>
+                    <h1 className="header">Time Converter</h1>
+                    <div>
+                        <label htmlFor="minutes">분</label>
+                        <input id="minutes" type="number" onChange = {onChange} 
+                        value={status ? numbers * 60 : numbers } disabled={status} />
+                    </div>
+                    <div>
+                        <label htmlFor="hours">시간</label>
+                        <input id="hours" type="number" onChange = {onChange} 
+                        value={status ? numbers : Math.round(numbers/60)} diabled={!status} />
+                    </div>
+                    <button onClick={onClick}>Invert</button>
+                </div>
+            );
+        }
+        ReactDOM.render( <App /> , root); // 함수일때 <App /> 로 적어줌
+    </script>
+</body>
+</html>

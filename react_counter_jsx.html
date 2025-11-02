@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h1>버튼을 클릭하면 카운터가 증가</h1>
+    <hr>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+        let counter = 0;
+        console.log(counter); // state 는 직접 변경할 수 없는 변수
+        function increaseCounter() { // state 객체를 변경하는 함수
+            counter += 1;
+            console.log(counter);
+            render(); // state 값이 변경될 때마다 호출되는 함수
+        }
+        function render() {
+            ReactDOM.render( <App /> , root); // 상수일때 App 만 적어줌
+        }
+        const App = () => (
+            <div>
+                <p id="count">
+                    {counter}번 클릭했습니다.
+                </p>
+                <button onClick={increaseCounter}>
+                    Click
+                </button>
+            </div>
+        );
+        render();
+    </script>
+</body>
+</html>
