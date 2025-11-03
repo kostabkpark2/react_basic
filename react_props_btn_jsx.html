@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h1>버튼 props</h1>
+    <hr>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+        const SaveBtn = () => {
+            return (
+                <button style={{
+                    backgroundColor : "yellow",
+                    color : "indigo",
+                    padding : "5px 10px",
+                    borderRadius : 5
+                }}>
+                    Save
+                </button>
+            )
+        }
+        const ConfirmBtn = () => {
+            return (
+                <button style={{
+                    backgroundColor : "yellow",
+                    color : "indigo",
+                    padding : "5px 10px",
+                    borderRadius : 5
+                }}>
+                    Confirm
+                </button>
+            )
+        }
+        const ResetBtn = () => {
+            return (
+                <button style={{
+                    backgroundColor : "yellow",
+                    color : "indigo",
+                    padding : "5px 10px",
+                    borderRadius : 5
+                }}>
+                    Reset
+                </button>
+            )
+        }
+        const App = () => {
+            return (
+                <>
+                    <SaveBtn />
+                    <ConfirmBtn />
+                    <ResetBtn />
+                </>
+            )
+        }
+        ReactDOM.render( <App /> , root); 
+    </script>
+</body>
+</html>
