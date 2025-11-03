@@ -67,11 +67,23 @@
             );
         }
         function App() {
+            const [index, setIndex] = React.useState("0");
+            const onChange = (event) => {
+                console.log(event.target.value);
+                setIndex(event.target.value);
+            }
             return (
                 <>
                     <h1>Converter</h1>
-                    <TimeConverter />
-                    <LengthConverter />
+                    <label forName="select">옵션</label>
+                    <select id="select" value={index} onChange={onChange}>
+                        <option value="0">Select unit converter</option>
+                        <option value="1">Time converter</option>
+                        <option value="2">Length converter</option>
+                    </select>
+                    {index === "0" ? <p>Please select unit which you want to convert</p> : null}
+                    {index === "1" ? <TimeConverter />: null}
+                    {index === "2" ? <LengthConverter /> : null}
                 </>
             )
         }
